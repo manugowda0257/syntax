@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <b style="font-family: Helvetica; color: #f5390a;">Syntax Sorcerers ChatBot</b>
+    <style>
+        body {
+            background-color: black;
+            color: rgb(251, 20, 20); /* Set text color to white for better visibility */
+        }
+    </style>
+    <style>
+        #chat-container {
+            width: 500px;
+            margin: 10px;
+            padding: 100px;
+            border: 3px solid #09a5f3;
+            border-radius: 50px;
+            overflow-y: scroll;
+            max-height: 3000px;
+            background-color: #06386a;
+        }
+        #chat-container div {
+            color: rgb(20, 244, 79);
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-container"></div>
+<input type="text" id="user-input" placeholder="Type your message...">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+     
+    const chatContainer = document.getElementById('chat-container');
+    const userInput = document.getElementById('user-input');
+
+    function sendMessage() {
+        const userMessage = userInput.value.trim().toLowerCase(); // Trim whitespace and convert to lowercase
+
+        if (!userMessage) {
+            displayMessage("VCET Bot: Please enter a message.");
+            return;
+        }
+
+        displayMessage('You: ' + userInput.value);
+
+        // Simple example logic: Respond to greetings
+        if (isGreeting(userMessage)) {
+            displayMessage('VCET Bot: Hello! How can I help you?');
+        } else if (
+            userMessage.includes('courses') ||
+            userMessage.includes('courses offered') ||
+            userMessage.includes('what are the courses offered at vcet')
+        ) {
+            const courseList = "1. Computer Science and Engineering\n" +
+                               "2. Data Science\n" +
+                               "3. Artificial Intelligence and Machine Learning\n" +
+                               "4. Mechanical Engineering\n" +
+                               "5. Electronics and Communication Engineering\n" +
+                               "6. Civil Engineering";
+
+            displayMessage(`VCET Bot: The courses offered by VCET are:\n${courseList}`);
+        } else if (
+            userMessage.includes('vcet') ||
+            userMessage.includes('about vcet') ||
+            userMessage.includes('vcet puttur') ||
+            userMessage.includes('information about vcet') ||
+            userMessage.includes('vivekananda college of engineering')
+        ) {
+            displayMessage('VCET Bot: Vivekananda College of Engineering & Technology (VCET) is a prestigious engineering college located in Puttur, Karnataka. Established in 2001 by Vivekananda Vidyavardhaka Sangha Puttur (R), VCET has been committed to providing quality technical education to the rural parts of coastal Karnataka. The college offers a variety of undergraduate and postgraduate programs in various fields of engineering and technology. With a strong emphasis on innovation and research, VCET aims to equip its students with the necessary skills and knowledge to excel in their chosen fields. The college is well-equipped with state-of-the-art facilities and has a highly qualified and dedicated faculty. VCET is known for its vibrant campus life and a wide range of extracurricular activities.\n');
+        } else if (
+            userMessage.includes('about management') ||
+            userMessage.includes('management') ||
+            userMessage.includes('governing council') ||
+            userMessage.includes('council') ||
+            userMessage.includes('about management details')
+        ) {
+            displayMessage(`VCET Bot: The Governing Council of VCET Puttur is composed of the following members:\n
+                          1. Sri K Vishwas Shenoy - President, B.E., Businessman\n
+                          2. Sri T S Subrahmanya Bhat - Correspondent, B.Com, Businessman\n
+                          3. Sri Muralidhara Bhat B - Treasurer, B.E (E&C), Progressive Farmer\n
+                          4. Sri Ravikrishna D Kallaje - Member, B.E (E&C), Businessman\n
+                          5. Dr. Suresh Putturaya- Member, M.B.B.S, M.D, Physician\n
+                          6. Sri Santhosh Kuthamotte - Member, B.Sc, M.S.W, Progressive Farmer, Social Worker\n
+                          7. Sri Sathyanarayana B - Member, B.E, Civil Engineer\n
+                          8. Dr. Yashoda Ramachandra- Member, Ph.D, Retired Principal\n
+                          9. Dr. Mahesh Prasanna K - Principal / Member Secretary\n
+            
+                          There are also staff representatives, VVS representatives, special invitees, and nominees as part of the management¹. For more detailed information about the management of VCET, you can visit their official website vcetputtur.ac.in`);
+
+
+
+        } else if (
+            userMessage.includes('fees structure') ||
+            userMessage.includes('fees') ||
+            userMessage.includes('annual fees')
+        ) {
+            displayMessage(`VCET Bot: The fee structure for various courses at Vivekananda College of Engineering & Technology (VCET), Puttur is as follows:\n
+            1. Bachelor of Engineering (BE): The annual fee for the BE course is ₹87,100.\n
+            2. Master of Business Administration (MBA): The annual fee for the MBA course is ₹1,10,50.\n
+            3. Master of Technology (M.Tech): The annual fee for the M.Tech course is ₹84,500.\n
+            
+            Please note that these are the annual fees and may vary based on the course and specialization. For the most accurate and up-to-date information, I recommend checking the [official VCET website or contacting the college directly]through https://vcetputtur.ac.in/admissions/fee-structure.`);
+        } else if (
+            userMessage.includes('cs') ||
+            userMessage.includes('cse') ||
+            userMessage.includes('computer science') ||
+            userMessage.includes('department of computer science') ||
+            userMessage.includes('department of cse') ||
+            userMessage.includes('about cse')
+        ) {
+            displayMessage(`VCET Bot: The Department of Computer Science & Engineering at Vivekananda College of Engineering & Technology (VCET), Puttur, was established in 2001 with the objective of imparting quality education in the field of Computer Science¹². The department has modern facilities for teaching, learning, and research.\n
+            
+            The Department of Computer Science & Engineering at VCET, Puttur, has a team of highly qualified and experienced faculty members. Here are some of them:\n
+            1. Mr. Krishna Mohana A J - HOD, Teaching from 14 years, B.E., M.Tech, (Ph.D)\n
+            2. Dr. Lokesh M R - Professor, Teaching from 18 years, M. Tech, Ph.D\n
+            3. Dr. Uma Pare - Associate Professor, Teaching from 17 years, Ph.D\n
+            4. Dr. Jeevitha B K - Associate Professor, Teaching from 8 years, B.E, M.Tech, Ph.D\n
+            5. Ms. Roopa G K - Assistant Professor, Teaching from 18 years, B.E., M.Tech, (Ph.D)\n
+            6. Ms. Bharathi K -Assistant Professor, Teaching from 15 years, B.E., M.Tech\n
+            7. Ms. Radhika Shetty D S - Assistant Professor, Teaching from 15 years, B.E., M.Tech, (Ph.D)\n
+            8. Mrs. Savitha M - Assistant Professor, Teaching from 8 years, B.E, M.Tech\n
+            9. Mr. Pradeep Kumar K G - Assistant Professor, Teaching from 13 years, DCSE, B. E., M. Tech, (Ph. D)\n
+            10. Mr. Mohan A R - Assistant Professor, Teaching from 13 years, B.E, M.Tech\n
+            11. Ms. Swapnalaxmi K - Assistant Professor, Teaching from 11 years, B.E., M.Tech, (Ph.D)\n
+            12. Mr. Pramod Kumar P M - Assistant Professor, Teaching from 10 years, B.E., M.Tech\n
+            13. Ms. Shwetha C H - Assistant Professor, Teaching from 10 years, B.E., M.Tech\n
+            14. Ms. Thapaswini P S - Assistant Professor, Teaching from 7 years, B.E., M.Tech\n
+            15. Ms. Deepthi M B - Assistant Professor, Teaching from 3 years, B.E., M.Tech\n
+            16. Ms. Jayashree M - Assistant Professor, Teaching from 2 years, B.E, M.Tech\n
+            17. Manohar Jha - Assistant Professor, Teaching from 3 years, B.E, M.Tech\n
+            18. Mr. Shrinidhi A - Assistant Professor, Teaching from 4 years, B.E. M.Tech\n
+            19. Ms. Manasa P - Assistant Professor, Teaching from 2 years, M.Tech\n
+            
+            For more detailed information about the faculty at VCET, you can visit their official website: vcetputtur.ac.in/ug-department/cs-faculty.`);
+        } else if (
+            userMessage.includes('ai') ||
+            userMessage.includes('aiml') ||
+            userMessage.includes('artificial intelligence and machine learning') ||
+            userMessage.includes('artificial intelligence') ||
+            userMessage.includes('department of artificial intelligence and machine learning') ||
+            userMessage.includes('department of aiml') ||
+            userMessage.includes('about aiml') ||
+            userMessage.includes('about ai')
+        ) {
+            displayMessage(`VCET Bot: The Department of Artificial Intelligence and Machine Learning at Vivekananda College of Engineering & Technology (VCET), Puttur, is dedicated to providing quality education in the emerging fields of Artificial Intelligence and Machine Learning¹. The curriculum of the AI&ML program is designed to provide necessary basics in Computer science engineering with specialized knowledge and skills in Artificial Intelligence, Machine Learning, Deep Learning, Reinforcement learning, NLP, HCI, Data Science, Meta Heuristics, Computer Vision, Business Intelligence, and other interdisciplinary areas\n.
+            
+            Here are some of the faculty members in the Department of Artificial Intelligence and Machine Learning at VCET:\n
+            1. Dr. Govindaraj P- Associate Professor & Head, Teaching from 8 years, Department: Artificial Intelligence and Machine Learning Department, Data Science Diploma, B.E, MTech, Ph.D., Post-Doc (IIT Guwahati)\n
+            2. Mrs. Akshaya D. Shetty - Assistant Professor, Teaching from 6 years, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech, (Ph.D)\n
+            3. Ms. Monica.K.P- Assistant Professor, Teaching from 4 years, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech\n
+            4. Mr. Abhishek Kumar K - Assistant Professor, Teaching from 2 years, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech\n
+            5. Mr. Ajay Shastry C G - Assistant Professor, Teaching from 1 year, Department: Artificial Intelligence and Machine Learning Department, B.E., M.Tech\n
+            6. Mrs. Vaishnavi K V - Assistant Professor, Teaching from 1 year, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech\n
+            7. Ms. Harshitha - Lab Instructor, Department: Artificial Intelligence and Machine Learning Department, ITI, Diploma in ECE\n
+            
+            For more detailed information about the Artificial Intelligence and Machine Learning department and its faculty at VCET, you can visit their [official website]:- vcetputtur.ac.in/ug-department/faculty-ai`);
+        } else if (
+            userMessage.includes('data science') ||
+            userMessage.includes('cd') ||
+            userMessage.includes('about data science') ||
+            userMessage.includes('ds') ||
+            userMessage.includes('data science course') ||
+            userMessage.includes('information of data science')
+        ) {
+            displayMessage(`VCET Bot: The Department of Computer Science & Engineering (Data Science) at Vivekananda College of Engineering & Technology (VCET), Puttur, offers a specialized undergraduate program, B.E in Computer Science & Engineering (Data Science)¹. Data Science is an interdisciplinary study that uses scientific processes, methods, and algorithms to convert large amounts of data into actionable knowledge¹. The department uses techniques and theories from mathematics, statistics, and computer science domains to provide computational solutions to real-world problems rich in data¹. This specialization makes students proficient in tools and systems used by Data Science Professionals and gain the skills in developing intelligent models that cover many fields of Computer Science¹.
+            
+            The key highlights of the program include:\n
+            - Career Essential Soft Skills Program and Placement Assistance (Job Opportunities Portal, Hiring Drives, Resume Building & many more)\n
+            - Dedicated Student Success Mentor & Career Mentor for 360 Degree Support\n
+            - Live Coding Classes & Profile Building Workshops\n
+            - Mentorship Sessions from Industry Experts\n
+            - Case Studies and Assignments\n
+            - Practical Hands-on Projects\n
+            
+            The core subjects of the program include Data Structures, Design and Analysis of Algorithms, Database Management Systems, Data Mining and Data Warehousing, Big Data Analytics, Programming: Python and R, Business Intelligence, and Cloud Computing.\n
+            
+            Here are some of the faculty members in the Department of Computer Science & Engineering (Data Science) at VCET:\n
+            1. Dr. Govindaraj P- Associate Professor & Head, Teaching from 8 years, Department: Artificial Intelligence and Machine Learning Department, Data Science Diploma, B.E, MTech, Ph.D., Post-Doc (IIT Guwahati)\n
+            2. Mrs. Akshaya D. Shetty- Assistant Professor, Teaching from 6 years, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech, (Ph.D)\n
+            3. Ms. Monica.K.P- Assistant Professor, Teaching from 4 years, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech\n
+            4. Mr. Abhishek Kumar K - Assistant Professor, Teaching from 2 years, Department: Artificial Intelligence and Machine Learning\n
+            5. Mr. Ajay Shastry C G - Assistant Professor, Teaching from 1 year, Department: Artificial Intelligence and Machine Learning Department, B.E., M.Tech\n
+            6. Mrs. Vaishnavi K V - Assistant Professor, Teaching from 1 year, Department: Artificial Intelligence and Machine Learning Department, B.E, M.Tech\n
+            7. Ms. Harshitha - Lab Instructor, Department: Artificial Intelligence and Machine Learning Department, ITI, Diploma in ECE\n
+            
+            For more detailed information about the Computer Science & Engineering (Data Science) department and its faculty at VCET, you can visit their [official website]: vcetputtur.ac.in/ug-department/computer-science-and-engineering-data-science. https://vcetputtur.ac.in/ug-department/faculty-ai.`);
+        }
+        
+
+
+else if (
+    userMessage.includes('ec') ||
+    userMessage.includes('electronics communication') ||
+    userMessage.includes('ec department') ||
+    userMessage.includes('ece') ||
+    userMessage.includes('about ec')
+) {
+    displayMessage(`VCET Bot: The Department of Electronics & Communication Engineering at Vivekananda College of Engineering & Technology (VCET), Puttur, was established in 20011. The department offers a 4-year degree program in Electronics and Communication Engineering, affiliated to the Visvesvaraya Technological University (VTU)¹. The program focuses on the practical application of science and math to solve problems in the field of communications¹. It includes designing, fabrication, testing, maintenance, supervision, and manufacturing of electronic equipment used in entertainment, media, hospitals (Medical Electronics), computer control systems, broadcast, communication systems, and in defense\n
+\nThe Department of Electronics & Communication Engineering at VCET, Puttur, has a team of highly qualified and experienced faculty members. Here are some of them:\n
+\n1.Dr. Mahesh Prasanna K - Principal, Professor, Teaching from 18 years, Department: Electronics & Communication Engineering, B.E., M.Tech, Ph.D¹\n
+2.Mr. Shrikanth Rao S K - Assistant Professor & Head, Teaching from 17 years, Department: Electronics & Communication Engineering, B.E, M.Tech, (Ph.D)¹\n
+3.Dr. Mahantesh R. Choudhari - Associate Professor, Teaching from 8 years, Department: Electronics & Communication Engineering, B.E., M.Tech, Ph.D¹\n
+4.Ms. Rajani Rai B - Assistant Professor, Teaching from 18 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+5.Ms. Sowmya Anil - Assistant Professor, Department Coordinator, Teaching from 17 years, Department: Electronics & Communication Engineering, Placement and Training Department, B.E, M.Tech¹\n
+6.Ms. Prabha G S - Assistant Professor, Teaching from 17 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+7.Mr. Shivaprasad - Assistant Professor, Teaching from 12 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+8.Ms. Nirupama K - Assistant Professor, Teaching from 11 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+9.Mr. Mahabaleshwara Bhat P - Assistant Professor, Teaching from 11 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+10.Ms. Nisha G R - Assistant Professor, Teaching from 9 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+11.Mr. Akshay S P - Assistant Professor, Teaching from 3 years, Department: Electronics & Communication Engineering, B.E., M.Tech¹\n
+12.Mr. Shreyas H - Assistant Professor, Teaching from 7 years, Department: Electronics & Communication Engineering, B.E, M.Tech¹\n
+13.Mr. Nithin - Assistant Professor, Teaching from 11 years, Department: Electronics & Communication Engineering, B.E, M.Tech¹\n
+\nFor more detailed information about the faculty at VCET, you can visit their [official website]: https://vcetputtur.ac.in/ug-department/ec-faculty.
+\nFor more information about the Electronics & Communication Engineering department, you can visit: https://vcetputtur.ac.in/ug-department/electronics-and-communication-engineering`);
+}
+else if (
+    userMessage.includes('m') ||
+    userMessage.includes('me') ||
+    userMessage.includes('mech') ||
+    userMessage.includes('mechanical') ||
+    userMessage.includes('mechanical engineering') ||
+    userMessage.includes('department of mechanical engineering') ||
+    userMessage.includes('me')
+) {
+    displayMessage(`VCET Bot: The Department of Mechanical Engineering at Vivekananda College of Engineering & Technology (VCET), Puttur, was established in 20041. It is one of the broadest and oldest engineering disciplines, comprising energy, fluid mechanics, dynamics, combustion, vibration, design, manufacturing processes, systems modeling and simulation, mechatronics, robotics, mechanics of material, rapid prototyping, and composites domains1. The department is into the development of new technologies for benefitting society\n\nThe Department of Mechanical Engineering at VCET, Puttur, has a team of highly qualified and experienced faculty members. Here are some of them:\n\n1.Dr. Manujesh B J - Principal, Professor, Teaching from 18 years, Department: Electronics & Communication Engineering, B.E., M.Tech, Ph.D1\n2.Mr. Chandrakanth Bekal - Assistant Professor, Department of Mechanical Engineering, Qualification - B.E., M.Tech2\n3.Mr. Naveen Krishna P.V. - Assistant Professor, Department of Mechanical Engineering\n4.Mr. Harish S R-Assistant Professor, Teaching from 17 years,Department of Mechanical Engineering,B.E, M.sc(Engg)\n5.Mr. Satheesha Kumar K - Assistant Professor,Teaching from 14 years,Department of Mechanical Engineering,B.E, M.Tech\n6.Mr. Ajith K- Assistant Professor,Teaching from 11 years.Department of Mechanical Engineering,B.E, M.Tech\n7.Mr. Naveen S P- Assistant Professor,Teaching from 11 years ,Department ofMechanical Engineering,B.E, M.Tech\n8.Mr. Deepak Kumar Shetty K- Assistant Professor,Teaching from 8 years,Department of Mechanical Engineering,B.E, M.Tech\n9.Mr. Raghavendra Prasad S A - Assistant Professor,Teaching from 11  years,Department of Mechanical Engineering,B.E, M.Tech\n10.Mr. Rajesh A R - Mr. Rajesh A R -Assistant Professor,Teaching from 3  years,Department of Mechanical Engineering,B.E., M.Sc (Engg.)\n\nFor more detailed information about the faculty at VCET, you can visit their official website:\nvcetputtur.ac.in/ug-department/mechanical-engineering`);
+}
+
+
+else if (
+    userMessage.includes('cv') ||
+    userMessage.includes('civil engineering') ||
+    userMessage.includes('about civil engineering') ||
+    userMessage.includes('department of civil engineering') ||
+    userMessage.includes('ce')
+) {
+    displayMessage(`VCET Bot: The Department of Civil Engineering at Vivekananda College of Engineering & Technology (VCET), Puttur, was established in 20041. It is one of the oldest engineering disciplines, encompassing many specialties2. Civil engineers design and supervise the construction of roads, buildings, airports, tunnels, dams, bridges, water supply, and sewage systems2. The positions of civil engineers range from supervisory to administrative jobs, from site engineer to project managers, from design and analysis to construction works2.\n\nThe major specializations within civil engineering are Structural Engineering, Environmental Engineering, Water resources Engineering, Construction Technology, Transportation Engineering and Management, Infrastructure Engineering Management, Geo-technical engineering, Remote Sensing and GIS, Highway Technology, Computer Aided Design of structures\n\nThe Department of Civil Engineering at VCET, Puttur, has a team of highly qualified and experienced faculty members. Here are some of them:\n\n1.Mr. Prashantha- Assistant Professor & HOD,Teaching from 17 years, Department of Civil Engineering,\nB.E., M.Tech, (Ph.D)\n2.Dr. Ananda V R - Assistant Professor,Teaching from 17 years, Department of Civil Engineering,\nB.E.(Civil), M.E. (Construction Technology), Diploma(IT), Ph.D.\n3.Dr. Sowmya N J - Assistant Professor,Teaching from 22 years, Department of Civil Engineering,\nB.E., M.Tech, Diploma(IT), Ph.D\n4.Dr. Subrahmanya R M -  Assistant Professor,Teaching from 12 years, Department of Civil Engineering,\nB.E., M.Tech, Ph.D\n5.Ms. Surekha T- Assistant Professor,Teaching from 10 years, Department of Civil Engineering,\nB.E., M.Tech\n6.Mr. Jayakrishna Bhat D - Assistant Professor,Teaching from 10 years, Department of Civil Engineering,\nB.E., M.Tech, (Ph.D)\n7.Mr. Shishirakrishna S - Assistant Professor,Teaching from 12 years, Department of Civil Engineering,\nB.E., M.Tech, (Ph.D)\n8.Dr. Rajesh R -  Assistant Professor,Teaching from 7 years, Department of Civil Engineering,B.Sc, M.Sc, Ph.D\n9.Mr. Narasimha Pai- Assistant Professor,Teaching from 2 years, Department of Civil EngineeringB.E, M.Tech\n10.Preetham Ganesh - Assistant Professor,Teaching from 2 years, Department of Civil Engineering,B.E, M.Tech\n\nFor more detailed information about the faculty at VCET, you can visit their official website:\nhttps://vcetputtur.ac.in/ug-department/civil-faculty#`);
+}
+else if (
+    userMessage.includes('placement') ||
+    userMessage.includes('job') ||
+    userMessage.includes('company') ||
+    userMessage.includes('campus recruitment') ||
+    userMessage.includes('recruitment') ||
+    userMessage.includes('work')
+) {
+    displayMessage(`VCET Bot: The Training & Placement Department at Vivekananda College of Engineering & Technology (VCET), Puttur, monitors the employment opportunities and arranges campus interviews for the final year students1. It is designed to function with a high degree of professionalism1. The department provides almost instantaneous data to the corporate sector with regard to the candidates available for consideration towards placement in accordance with the preserved requirements1. The team interacts with reputed organizations all over the country for arranging campus interviews for the final year students1. They make efforts to organize technical seminars, workshops, and corporate expectation sessions1. Industry personnel are invited periodically to enrich the knowledge of the student community with the latest technological innovations and industry practices1.\n\nThe department’s campus recruitment program starts at the commencement of the 7th semester and keeps continuing till the end of the academic year1. Students are also given an opportunity to participate in Off-Campus drives1. The department has seen aggressive hiring from top-notch companies at VCET, Puttur1. A record high of 350 campus placement offers were awarded to students from various branches of both Under Graduate and Post Graduate streams from Engineering and MBA1. An average of 75+ companies visit the campus, plus students get an addition of 30 off-campus and pool opportunities for recruitment with the prominent ones being Indian Navy, Infosys, Wipro, TCS, SAP, Mercedes Benz, Bosch, Robosoft, Global delight, Mphasis, ACC Ltd, Indian Oil Sky Tanking, Indo Mim, Dilip Buildcon, Global Edge, 99Games, and Cadence to name a few\n\nFor more detailed information about the Training & Placement Department at VCET, you can visit their official website:\nhttps://vcetputtur.ac.in/departments/training-and-placement-department`);
+}
+else if (
+    userMessage.includes('sports') ||
+    userMessage.includes('play') ||
+    userMessage.includes('ground') ||
+    userMessage.includes('games') ||
+    userMessage.includes('physical department')
+) {
+    displayMessage(`VCET Bot: \nHOD:- Mr. Balachandra Gowda B Physical Education Director\nDepartment: Physical Education\n\nB.A, B.P.Ed, M.P.Ed\nOverall Champions in 23rd VTU Intercollegiate Athletic Meet 2021-22\nDuring the 23rd Intercollegiate Athletic Meet 2021-22, organized by Visvesvaraya Technological University held at SJCIT Chikkaballapur, our students are created a history of 6 new meet records. We are proud to announce that our students also bagged 13 Gold Medals, 2 Silver Medals and 4 Bronze Medals.\nThe VCET teams have a great history of glory by winning numerous trophies and making the college proud2. They have participated and won at various levels, including National Level, State Level, and University Level\n\nThe concept of physical education is generally understood as organisation of some games, sports or physical education activities. For the last 5 years our students are performing very well in physical education activities. Many students have represented VTU at All India Inter University Athletics, Swimming and Kabaddi tournaments. One of our students was also selected for All India Inter-University Khelo India Swimming Championship by VTU. We give training to the students during morning and evening sessions. To promote the sports, our management provides the best facility and financial support to the sports students.`);
+}
+else if (
+    userMessage.includes('library') ||
+    userMessage.includes('lib') ||
+    userMessage.includes('books') ||
+    userMessage.includes('book bank')
+) {
+    displayMessage(`VCET Bot: \nThe library of Vivekananda College of Engineering & Technology is a storehouse of knowledge. It is housed in a spacious new building called Krishna Chetana on the ground floor1. The library has a floor area of 877 square meters1 and is segregated into various sections like Lending, Reference, Digital library, Newspaper, Periodicals, Reading room, etc1.\n\nThe library’s collection is about 47237 volumes with 6596 titles on Engineering, Management, and Humanities1. It contains Abstracts, Directories, Yearbooks, Biographical sources, Textbooks, Thesis, Dissertations, Encyclopedias, and General books1. The library subscribes to 66 technical print journals and more than 29000 e-books1.\n\nThe digital library has 12 systems with high-speed internet facility1. The digital Library is exclusively used for the online access of e-Journals, e-books, conference proceedings, articles, educational videos, and e-resources1.\n\nThe library has subscribed to online e-journals and e-books from various publishers through a member of VTU Consortium1. Some of the e-resources include Elsevier Science Direct, Taylor & Francis (T&F), Springer Nature, Emerald Management, and more1.\n\nThe library can accommodate 200 students at a time and is enabled with Wi-Fi technology1. It has membership with VTU Consortium, DELNET, NDL\nwebsite: [VCET Library](https://vcetputtur.ac.in/facilities/library)`);
+}
+
+
+
+else {
+            displayMessage('VCET Bot: I\'m sorry, I didn\'t understand that.');
+        }
+
+        userInput.value = ''; 
+    }
+
+    function displayMessage(message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+        chatContainer.appendChild(messageDiv);
+
+        // Scroll to the bottom to show the latest message
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function isGreeting(message) {
+        const greetings = ['hi', 'hello', 'hey', 'hoi', 'hii'];
+        return greetings.some(greeting => message.includes(greeting));
+    }
+</script>
+
+</body>
+</html>
